@@ -57,14 +57,14 @@ textarea{
   float: left;
 }
 
-.weekday{
+.Weekday{
 font-size: medium;
-height: 100%;
-width: 100%;
-padding: 0 0.5rem;
+font-weight: 400;
+letter-spacing: 5%;
+padding-right: 30px;
+padding-left: 80px;
+padding-bottom: 10px;
 display: flex;
-letter-spacing: normal;
-text-align: left;
 }
 
 .time-block{
