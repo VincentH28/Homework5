@@ -33,7 +33,12 @@ textarea{
   align-items: center;
 }
 
-.month{
+.calender{
+  display: inline-grid;
+  grid-template-columns: repeat(7, );
+  grid-template-rows: repeat(10, auto);
+}
+.monthName{
   width: 100%;
   height: auto;
   background-color: rgba(191, 191, 236, 0.5);
@@ -44,14 +49,14 @@ textarea{
   padding: 7%;
 }
 
-.month-H1{
+.monthName-H1{
   font-size: x-large;
   text-transform: uppercase;
   text-align: center;
   float: left;
 }
 
-.month-p1{
+.monthName-p1{
   font-size: large;
   text-align: left;
   float: left;
@@ -78,7 +83,8 @@ display: flex;
   white-space: pre-wrap;
   height: 80px;
   width: 100px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  transition: background-color cubic-bezier(0.2s);
 }
 
 .hour {
