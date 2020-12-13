@@ -29,16 +29,42 @@ textarea{
   display: grid;
   width: auto;
   height: auto;
-  background-color: gray;
+  background-color:white;
   align-items: center;
 }
 
-.weekdays{
+.month{
   width: 100%;
-  height: 100%;
-  padding: 0 0.5rem;
+  height: auto;
+  background-color: rgba(191, 191, 236, 0.5);
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  padding: 7%;
+}
+
+.month-H1{
+  font-size: x-large;
+  text-transform: uppercase;
+  text-align: center;
+  float: left;
+}
+
+.month-p1{
+  font-size: large;
+  text-align: left;
+  float: left;
+}
+
+.weekday{
+font-size: medium;
+height: 100%;
+width: 100%;
+padding: 0 0.5rem;
+display: flex;
+letter-spacing: normal;
+text-align: left;
 }
 
 .time-block{
