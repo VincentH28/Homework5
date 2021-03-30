@@ -1,36 +1,57 @@
-const calender = document.createElement("calender");
-const Sunday = document.createElement("Weekdays");
-// const nine = document.createElement("01");
-// const ten = document.createElement("02");
-// const eleven = document.createElement("03");
-// const twelve = document.createElement("04");
-// const one = document.createElement("05");
-// const two = document.createElement("06");
-// const three = document.createElement("07");
-// const four = document.createElement("08");
-// const five = document.createElement("09");
+//$("#currentDay").text(DateTime.local());
+$("#currentDay").text(
+    luxon.DateTime.local().toLocaleString({
+      weekday: "long",
+      month: "long",
+      day: "2-digit",
+    })
+  );
+  
+  function timeChange() {
+    let currentTime = luxon.DateTime.local().toLocaleString({
+      hour: "2-digit",
+      hour12: false,
+    });
+    //console.log(currentTime);
+    let formattedHour = parseInt(currentTime[0] + currentTime[1]);
 
-const date = new Date();
+    $('.time-block').each(function () {
+        //console.log(this);
+        let currentHour = paresInt($(this).attr('id'));
 
+        if (formattedHour === currentHour) {
+            $(this).addClass('present');
+            }   else if (formattedHour < currentHour) {
+            $(this).addClass('future');
+            }   else formattedHour > currentHour;
+            {
+            $(this).addClass('past');
+            }
+        }
+    );
+    
+    //console.log(currentTime);
+    }
+    
+    var saveBtn = $('.saveBtn');
 
-const month = date.getMonth();
+    saveBtn.on('click', function (){
+        let hour = $(this).siblings('.hour').text();
+        let input = $(this).siblings('#input').val();
+        //console.log(input);
+        //console.log(hour);
 
-console.log(month);
-// [
-//     "January",
-//     "February",
-//     "March",
-//     "April",
-//     "May",
-//     "June",
-//     "July",
-//     "August",
-//     "September",
-//     "October",
-//     "November",
-//     "December",
-// ];
+        localStorage.setItem(hour, input);
+    });
 
-// document.querySelector('monthName.h1').innerHTML = months [12];
-
-// const saveBtn = $(".saveBtn");
+    function Storing(){
+        $('.hour').each(function(){
+            let time = $(this).text();
+            let text = localStorage.getItem(time);
+        if (text !== null) {
+            $(this).siblings('textarea').val(text);
+        }    
+        });
+    }
+    timeChange();
+    Storing();
