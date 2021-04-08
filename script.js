@@ -1,4 +1,3 @@
-//$("#currentDay").text(DateTime.local());
 $("#currentDay").text(
     luxon.DateTime.local().toLocaleString({
       weekday: "long",
@@ -16,7 +15,6 @@ $("#currentDay").text(
     let formattedHour = parseInt(currentTime[0] + currentTime[1]);
 
     $('.time-block').each(function () {
-        //console.log(this);
         let currentHour = paresInt($(this).attr('id'));
 
         if (formattedHour === currentHour) {
@@ -29,8 +27,7 @@ $("#currentDay").text(
             }
         }
     );
-    
-    //console.log(currentTime);
+
     }
     
     var saveBtn = $('.saveBtn');
