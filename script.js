@@ -28,7 +28,7 @@ let presentHour = parseInt($(this).attr("id"));
 
   
   let timeSchedule = $(this).siblings(".hour").text();
-  let text = $(this).siblings("#Text").val();
+  let text = $(this).siblings("#textarea-input").val();
   
   localStorage.setItem(timeSchedule, text);
   });
