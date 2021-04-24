@@ -11,17 +11,17 @@ let fixedHour = luxon.DateTime.local().toLocaleString({
     hour: "2-digit",
     hour12: false,
   });
+    
+    let formattedHour = parseInt(currentTime[0] + currentTime[1]);
+    $(".time-block").each(function(){
+        let currentHour = parseInt($(this).attr("id"));
   
-//Determine timeblock color based on am or pm
-$(".time-block").each(function(){
-let presentHour = parseInt($(this).attr("id"));
-  
- if(fixedHour > presentHour){
-   $(this).addClass("past");
- } else if (presentHour === fixedHour){
-   $(this).addClass("present");
- } else { (presentHour < fixedHour)
-   $(this).addClass("future");
+        if(formattedHour === currentHour){
+            $(this).addClass("present");
+        } else if (formattedHour < currentHour) {
+            $(this).addClass("future");
+        } else formattedHour > currentHour;
+            $(this).addClass("future");
  }
  });
  }; 
@@ -30,23 +30,23 @@ let presentHour = parseInt($(this).attr("id"));
   saveBtn.on("click", function() {
 
   
-  let timeSchedule = $(this).siblings(".hour").text();
-  let text = $(this).siblings("#textarea-input").val();
+  let hour = $(this).siblings(".hour").text();
+  let input = $(this).siblings("#input").val();
   
-  localStorage.setItem(timeSchedule, text);
+  localStorage.setItem(hour, input);
   });
   
-  function storedAgenda (){
+  function Storing (){
   $(".hour").each(function(){
-    let presentHour = $(this).text();
-    let storedAgenda = localStorage.getItem(presentHour);
+    let time = $(this).text();
+    let storedAgenda = localStorage.getItem(time);
   
     if (storedAgenda !== null) {
       $(this).siblings("textarea").val(storedAgenda);
      }
-  })
+  });
   }
 
   //Call functions
   time();
-  storedAgenda();
+  Storing();
