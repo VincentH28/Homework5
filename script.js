@@ -7,7 +7,10 @@ $("#currentDay").text(luxon.DateTime.local().toLocaleString({
   );   
   
 function time(){
-let fixedHour = parseInt(moment().format("H"));
+let fixedHour = luxon.DateTime.local().toLocaleString({
+    hour: "2-digit",
+    hour12: false,
+  });
   
 //Determine timeblock color based on am or pm
 $(".time-block").each(function(){
